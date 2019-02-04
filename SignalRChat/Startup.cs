@@ -54,6 +54,11 @@ namespace SignalRChat
 			app.UseStaticFiles();
 			app.UseCookiePolicy();
 
+			app.UseSignalR(routes =>
+			{
+				routes.MapHub<ChatHub>("/chatHub");
+			});
+
 			app.UseMvc();
 		}
 	}
